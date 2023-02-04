@@ -1,5 +1,5 @@
 import { getTrendingFilms } from 'FetchApi';
-import { Link } from 'react-router-dom';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 
 export const Home = () => {
@@ -19,19 +19,6 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Trending today</h2>
-      {movies.length > 0 && (
-        <ul>
-          {movies.map(({ id, title,name }) => (
-            <li key={id}>
-              <Link to={`${id}`}>
-                <p>{title || name}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <MoviesList movies={movies} />
   );
 };

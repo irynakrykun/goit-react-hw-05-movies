@@ -1,36 +1,33 @@
-// import { useState } from 'react';
-// import { Wrapper, Input, SearchFormButton } from './SearchBox.styled';
+import { useState } from 'react';
 
-// export const SearchBox = ({ value, onSubmit }) => {
-//   const [movie, setMovie] = useState('');
+export const SearchBox = ({ onSubmit }) => {
+  const [movieName, setMovieName] = useState('');
 
-//   const handelSubmit = e => {
-//     e.preventDefault();
-//     if (movie.trim() === '') {
-//       alert('Enter a value');
-//       return;
-//     }
-//     onSubmit(movie);
-//     setMovie('');
-//   };
+  const handelSubmit = e => {
+    e.preventDefault();
+    if (movieName.trim() === '') {
+      alert('Enter a value');
+      return;
+    }
+    onSubmit(movieName);
+    setMovieName('');
+  };
 
-//     const handelMovieChange = e => {
-//     setMovie(e.currentTarget.value.toLowerCase());
+  const handelMovieChange = e => {
+    setMovieName(e.currentTarget.value.toLowerCase());
+  };
 
-//   };
-
-//   return (
-//     <Wrapper onSubmit={handelSubmit}>
-//       <Input
-//         type="text"
-//         autoComplete="off"
-//         value={value}
-//         name ='movieName'
-//         onChange={handelMovieChange}
-//       />
-//       <SearchFormButton type="submit">Search</SearchFormButton>
-//     </Wrapper>
-//   );
-// };
-
-
+  return (
+    <>
+      <form onSubmit={handelSubmit}>
+        <input
+          type="text"
+          name="movieName"
+          value={movieName}
+          onChange={handelMovieChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </>
+  );
+};
