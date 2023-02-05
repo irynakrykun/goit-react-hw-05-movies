@@ -9,8 +9,8 @@ export const Home = () => {
     const getFilms = async () => {
       try {
         const resp = await getTrendingFilms();
-        setMovies(prevMovies => [...prevMovies, ...resp]);
-        console.log(resp);
+        setMovies(resp);
+        
       } catch (error) {
         console.log(error);
       }

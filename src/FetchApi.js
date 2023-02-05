@@ -7,8 +7,7 @@ axios.defaults.params = {
 
 export const getTrendingFilms = async () => {
     const { data } = await axios.get(`trending/all/day?`);
-    console.log(data.results);
-  return data.results;
+      return data.results;
 };
 
 export const searchFilms  = async (movieName) => {
@@ -17,16 +16,17 @@ export const searchFilms  = async (movieName) => {
 };
 
 export const getMovieDetails = async (movieId) => {
-  const {data} = await axios.get(`movie/${movieId}?`);
-  return data.results;
+  const { data } = await axios.get(`movie/${movieId}?`);
+  return data;
 };
 
-// export const getMovieCredits = async (movieId) => {
-//   const {data} = await axios.get(`movie/${movieId}/credits?`);
-//   return data.results;
-// };
+export const getMovieCredits = async (movieId) => {
+  const { data } = await axios.get(`movie/${movieId}/credits?`);
+    return data.cast;
+ 
+};
 
-// export const getMovieReviews = async (movieId) => {
-//   const {data} = await axios.get(`movie/${movieId}/reviews?`);
-//   return data.results;
-// };
+export const getMovieReviews = async (movieId) => {
+  const {data} = await axios.get(`movie/${movieId}/reviews?`);
+  return data.results;
+};
