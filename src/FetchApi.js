@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 axios.defaults.params = {
@@ -6,28 +6,27 @@ axios.defaults.params = {
 };
 
 export const getTrendingFilms = async () => {
-    const { data } = await axios.get(`trending/all/day?`);
-      return data.results;
-};
-
-export const searchFilms  = async (movieName) => {
-  const {data} = await axios.get(`search/movie?query=${movieName}`);
+  const { data } = await axios.get(`trending/all/day?`);
   return data.results;
 };
 
-export const getMovieDetails = async (movieId) => {
+export const searchFilms = async movieName => {
+  const { data } = await axios.get(`search/movie?query=${movieName}`);
+  return data.results;
+};
+
+export const getMovieDetails = async movieId => {
   const { data } = await axios.get(`movie/${movieId}?`);
   return data;
 };
 
-export const getMovieCredits = async (movieId) => {
+export const getMovieCredits = async movieId => {
   const { data } = await axios.get(`movie/${movieId}/credits?`);
-    return data.cast;
- 
+  return data.cast;
 };
 
-export const getMovieReviews = async (movieId) => {
+export const getMovieReviews = async movieId => {
   const { data } = await axios.get(`movie/${movieId}/reviews?`);
-  console.log(data.results);
+
   return data.results;
 };

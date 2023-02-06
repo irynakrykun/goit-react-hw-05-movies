@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { SearchBox } from 'components/SearchBox/SearchBox';
 import { SearchMovieList } from 'components/SearchMovieList/SearchMovieList';
 
- const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') ?? '';
@@ -18,7 +18,7 @@ import { SearchMovieList } from 'components/SearchMovieList/SearchMovieList';
     const fetchMovie = async () => {
       try {
         const movies = await searchFilms(movieName);
-        console.log(movies);
+
         setMovies(movies);
       } catch (error) {
         console.log(error);
