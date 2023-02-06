@@ -1,7 +1,7 @@
 import { getMovieCredits } from '../FetchApi';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import {Loder} from '../components/Loder'
+import { Loader } from './Loader/Loader';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -9,7 +9,7 @@ export const Cast = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
 
-  console.log(isLoading);
+
   console.log(error);
 
   useEffect(() => {
@@ -33,10 +33,12 @@ export const Cast = () => {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   return (
     <>
+      {isLoading && <Loader />}
+          
       <ul>
         {cast.map(({ id, profile_path, name, character }) => (
           <li key={id}>
-            <img src={IMG_URL + profile_path} alt="" />
+            <img src={IMG_URL + profile_path} alt={name} width="150"/>
             <h3>{name}</h3>
             <p>Character: {character}</p>
           </li>

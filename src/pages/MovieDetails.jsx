@@ -33,10 +33,10 @@ export const MovieDetails = () => {
       <h2>Additinial information</h2>
       <ul>
         <li>
-          <Link to="cast">cast</Link>
+            <Link to={"cast"}  state={{ from: location?.state?.from }}>Cast</Link>
         </li>
         <li>
-          <Link to="reviews">reviews</Link>
+            <Link to={"reviews"}  state={{ from: location?.state?.from }}>Reviews</Link>
         </li>
       </ul>
       <Outlet />
