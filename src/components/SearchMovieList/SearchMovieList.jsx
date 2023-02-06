@@ -1,4 +1,4 @@
-import { Link,useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 export const SearchMovieList = ({ movies }) => {
   const location = useLocation();
@@ -18,16 +18,9 @@ export const SearchMovieList = ({ movies }) => {
       )}
     </div>
   );
-}
-  SearchMovieList.propTypes = {
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      
-      })
-    ).isRequired,
-  
-  };
- 
+};
+SearchMovieList.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  name: PropTypes.string,
+};

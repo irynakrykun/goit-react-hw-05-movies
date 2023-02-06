@@ -36,11 +36,11 @@ export const MovieInfo = ({
   );
 };
 MovieInfo.propTypes = {
-  title: PropTypes.string.isRequired,
-  poster_path: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf.isRequired,
-  nam: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string,
+  gernes: PropTypes.array,
+  name: PropTypes.string,
   vote_average: PropTypes.number,
   release_date: PropTypes.number,
 };
