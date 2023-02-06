@@ -3,26 +3,21 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from './Loader/Loader';
 
-export const Cast = () => {
+ const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { movieId } = useParams();
-
-
-  console.log(error);
 
   useEffect(() => {
     if (movieId === '') return;
     const Cast = async () => {
       try {
         setIsLoading(true);
-        setError(null);
+
         const resp = await getMovieCredits(movieId);
         setCast(resp);
-        
       } catch (error) {
-        setError('Error');
+        console.log('error');
       } finally {
         setIsLoading(false);
       }
@@ -34,11 +29,11 @@ export const Cast = () => {
   return (
     <>
       {isLoading && <Loader />}
-          
+
       <ul>
         {cast.map(({ id, profile_path, name, character }) => (
           <li key={id}>
-            <img src={IMG_URL + profile_path} alt={name} width="150"/>
+            <img src={IMG_URL + profile_path} alt={name} width="150" />
             <h3>{name}</h3>
             <p>Character: {character}</p>
           </li>
@@ -47,3 +42,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 export const SearchBox = ({ onSubmit }) => {
   const [movieName, setMovieName] = useState('');
 
@@ -30,4 +30,7 @@ export const SearchBox = ({ onSubmit }) => {
       </form>
     </>
   );
+};
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
